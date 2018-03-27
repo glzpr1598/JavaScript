@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="img/JavaScript.png">
+        <title>JavaScript</title>
+        <style>
+            /* CSS 영역 */
+        </style>
+    </head>
+    <body>
+        <button onclick="arrPush()">push</button>
+        <button onclick="arrUnshift()">unshift</button>
+        <button onclick="arrPop()">pop</button>
+        <button onclick="arrShift()">shift</button>
+    </body>
+    <script>
+        // 배열 선언
+        var arr = [];
+        var i = 0;
+        
+        // push : 마지막 원소 뒤에 삽입
+        function arrPush() {
+            i++;
+            arr.push(i);
+            console.log(arr);
+        }
+        
+        // unshift : 첫번째 원소 앞에 삽입
+        function arrUnshift() {
+            i++;
+            arr.unshift(i);
+            console.log(arr);
+        }
+        
+        // pop : 마지막 원소 제거
+        function arrPop() {
+            i--;
+            arr.pop();
+            console.log(arr);
+        }
+        
+        // shift : 첫번째 원소 제
+        function arrShift() {
+            i--;
+            arr.shift();
+            console.log(arr);
+        }
+    </script>
+</html>
