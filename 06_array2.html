@@ -9,41 +9,137 @@
     </head>
     <body>
         <button onclick="arrPush()">push</button>
-        <button onclick="arrUnshift()">unshift</button>
+        <br>
         <button onclick="arrPop()">pop</button>
+        <br>
+        <button onclick="arrUnshift()">unshift</button>
+        <br>
         <button onclick="arrShift()">shift</button>
+        <br>
+        <button onclick="arrSplice()">splice</button>
+        <br>
+        <button onclick="arrSplice2()">splice2</button>
+        <br>
+        <button onclick="arrSlice()">slice</button>
+        <br>
+        <button onclick="arrSort()">sort</button>
+        <br>
+        <button onclick="arrSort2()">sort2</button>
+        <br>
+        <button onclick="arrReverse()">reverse</button>
+        <br>
+        <button onclick="arrConcat()">concat</button>
+        <br>
+        <button onclick="arrJoin()">join</button>
+        <br>
+        <button onclick="arrValueOf()">valueOf</button>
+        <br>
+        <button onclick="arrDelete()">delete</button>
     </body>
     <script>
         // 배열 선언
         var arr = [];
         var i = 0;
         
-        // push : 마지막 원소 뒤에 삽입
+        
+        // push(원소) : 마지막 원소 뒤에 삽입
         function arrPush() {
             i++;
             arr.push(i);
             console.log(arr);
         }
         
-        // unshift : 첫번째 원소 앞에 삽입
+         // pop() : 마지막 원소 제거
+        function arrPop() {
+            arr.pop();
+            console.log(arr);
+        }
+        
+        // unshift(원소) : 첫번째 원소 앞에 삽입
         function arrUnshift() {
             i++;
             arr.unshift(i);
             console.log(arr);
         }
         
-        // pop : 마지막 원소 제거
-        function arrPop() {
-            i--;
-            arr.pop();
-            console.log(arr);
-        }
-        
-        // shift : 첫번째 원소 제
+        // shift() : 첫번째 원소 제거
         function arrShift() {
-            i--;
             arr.shift();
             console.log(arr);
         }
+        
+        
+        // splice(시작점, 개수[, 추가원소, ...]) : 특정 구간을 추출, 제거. [옵션]원소 추가
+        function arrSplice() {
+            console.log(arr.splice(2, 2));
+            console.log(arr);
+        }
+        function arrSplice2() {
+            console.log(arr.splice(2, 2, "A", "B", "C"));
+            console.log(arr);
+        }
+        
+        // slice(시작점[, 마지막]) : 특정 구간 추출.(원본은 변경 X)
+        function arrSlice() {
+            console.log(arr.slice(2, 4));
+        }
+        
+        
+        /* 아래는 자주 사용하지는 않는다. */
+        // sort([함수]) : 원소를 오름차순(텍스트 기준)으로 정렬.
+        function arrSort() {
+            arr.sort();
+            console.log(arr);
+        }
+        // 숫자 정렬
+        function arrSort2() {
+            arr.sort(function(a, b){return a-b});
+            console.log(arr);
+        }
+        
+        // reverse() : 원소의 순서를 반대로 변경.
+        function arrReverse() {
+            arr.reverse();
+            console.log(arr);
+        }
+        
+        // concat(배열, ...) : 복수의 배열을 결합.(원본은 변경 X)
+        function arrConcat() {
+            var arr1 = [1, 2, 3, 4];
+            var arr2 = ["A", "B", "C"];
+            var arr3 = [true, false];
+            var newArr = arr1.concat(arr2, arr3);
+            console.log(newArr);
+        }
+        
+        // join(삽입문자열) : 각 원소 사이에 문자열을 삽입하여 문자열로 반환
+        function arrJoin() {
+            console.log(arr.join("@"));
+        }
+        
+        // valueof() : 배열의 원시데이터형 반환
+        function arrValueOf() {
+            console.log(arr.valueOf());
+        }
+        
+        // delete 삭제원소 : 해당원소를 삭제 후 해당 인덱스값를 empty로 함.
+        function arrDelete() {
+            var test = [1, 2, 3, 4];
+            delete test[2];
+            test[2] = -1; // null exception 방지
+            console.log(test);
+        }
+        
+        
+        // (참고)다차원 배열 선언
+        var one = [];
+        var two = [[]];
+        var three = [[[]]];
+        
+        var one = [1, 2, 3, 4];
+        var two = [
+            [1, 2, 3], 
+            [4, 5, 6]
+        ];
     </script>
 </html>

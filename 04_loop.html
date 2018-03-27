@@ -11,13 +11,19 @@
         <!-- body -->
     </body>
     <script>
+        // for문
         var arr = [];
-        
-        // 반복문 : 배열에 1부터 5까지 할
         for(var i = 0; i < 5; i++) {
             arr[i] = i + 1;
         }
         console.log(arr);
+        
+        // forEach문
+        // 배열.forEach(실행함수);
+        arr = ["A", "B", "C", "D", "E"];
+        arr.forEach(function(item, idx) {
+           console.log(idx + " : " + item) 
+        });
         
     </script>
 </html>

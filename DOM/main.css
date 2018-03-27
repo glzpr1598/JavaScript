@@ -1,0 +1,6 @@
+/* style 태그 내 영역과 같다. */
+div{
+    width: 250px;
+    height: 250px;
+    background-color: aquamarine;
+}
