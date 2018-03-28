@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <h4 id="h1">Focus NULL</h4>
+        <input id="input1" type="text">    
+    </body>
+    <script>
+        // 요소.addEventListener("이벤트명", 함수명); -> 함수인자는 쓰지 않음.
+        // JavaScript 내에서 이벤트를 걸어줌.
+        // 제거는 removeEventListener
+
+        // 요소 가져옴
+        var input1 = document.getElementById("input1");
+        var h1 = document.getElementById("h1");
+        
+        // focusin
+        input1.addEventListener("focusin", printFocusIn); // 이벤트 생성
+        function printFocusIn(evt) {
+            console.log("Focus in!");
+            console.log(evt); // 함수 인자 : 이벤트 객체(발생한 이벤트에 대한 정보)
+            document.getElementById("h1").innerHTML="Focus in!";
+        }
+        
+        // focusout
+        input1.addEventListener("focusout", printFocusOut); // 이벤트 생성
+        function printFocusOut() {
+            console.log("Focus out!");
+            document.getElementById("h1").innerHTML="Focus out!";
+        }
+        
+        // 익명함수 이용
+        input1.addEventListener("keydown", function(evt){
+            console.log(evt); // 이벤트 객체 출력
+            console.log(evt.keyCode); // 누른 키의 keyCode
+            console.log(evt.shiftKey); // 쉬프트키가 눌렸는지
+            // 백슬래시 입력 시 알림창
+            if(evt.keyCode == 220) {
+                alert("백슬래시 입력!");
+            }
+            h1.innerHTML=evt.keyCode;
+        });
+
+    </script>
+</html>

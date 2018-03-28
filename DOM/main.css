@@ -3,4 +3,6 @@ div{
     width: 250px;
     height: 250px;
     background-color: aquamarine;
+    text-align: center;
+    border: thin solid;
 }

@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <div id="div1"></div>
+        <h3>mouse position<span id="span1"></span></h3>
+        
+    </body>
+    <script>
+        // 요소 가져오기
+        var div1 = document.getElementById("div1");
+        var span1 = document.getElementById("span1");
+        
+        // click
+        div1.addEventListener("click", function(evt) {
+            console.log("마우스 click");
+            div1.innerHTML="마우스 click";
+        });
+        // 방법 2
+//        div1.onclick = function() {
+//            console.log("마우스 click");
+//            div1.innerHTML="마우스 click";
+//        }
+        
+        // dblclick
+        div1.addEventListener("dblclick", function(evt) {
+            console.log("마우스 dblclick");
+            div1.innerHTML="마우스 dblclick";
+        });
+        
+        // mouseenter
+        div1.addEventListener("mouseenter", function(evt) {
+            console.log("마우스 enter");
+            div1.innerHTML="마우스 enter";
+        });
+        
+        // mouseout
+        div1.addEventListener("mouseout", function(evt) {
+            console.log("마우스 out");
+            div1.innerHTML="마우스 out";
+        });
+        
+        // mousemove
+        document.addEventListener("mousemove", function(e) {
+            console.log(e.clientX + ", " + e.clientY);
+            span1.innerHTML = " : " + e.clientX + ", " + e.clientY;
+        });
+    </script>
+</html>
