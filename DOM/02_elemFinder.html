@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <h1>h1 tag1</h1>
+        <h1>h1 tag2</h1>
+        <h1>h1 tag3</h1>
+        <h1>h1 tag4</h1>
+        <h1>h1 tag5</h1>
+        <h2 class="h2">h2 class1</h2>
+        <h2 class="h2">h2 class2</h2>
+        <h2 class="h2">h2 class3</h2>
+        <h2 class="h2">h2 class4</h2>
+        <h3 id="h3">h3 id</h3>
+    </body>
+    <script>
+        // 태그명을 이용해 객체 가져오기
+        var h1 = document.getElementsByTagName("h1");
+        console.log(h1);
+        console.log(h1[0]); // 배열 형태이기 때문에 인덱스로 선택 가능(순서가 바뀔 수 있기 때문에 좋은 방법은 아님)
+        
+        // 클래스명을 이용해 객체 가져오기
+        var h2 = document.getElementsByClassName("h2");
+        console.log(h2);
+        console.log(h2[3]);
+        
+        // 아이디를 이용해 객체 가져오기
+        var h3 = document.getElementById("h3");
+        console.log(h3);
+    </script>
+</html>

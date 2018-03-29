@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <input id="myId" type="text" value="test massage">
+    </body>
+    <script>
+        // input - type, value
+        var input = document.getElementById("myId");
+        
+        // 1. input 태그의 type 출력
+        console.log(input.type);
+        
+        // 2. type을 button으로 변경
+        input.type="button";
+        // input.setAttribute("type", "button");
+        
+        // 3. value 출력
+        console.log(input.value);
+        
+        // 4. value를 click으로 변경
+        input.value="click";
+        // input.setAttribute("value", "click");
+        
+        // 5. 버튼에 클릭 이벤트 추가
+        input.setAttribute("onclick", "myFn(this)");
+        function myFn(e) {
+            console.log(e);
+        }
+    </script>
+</html>

@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <p id="p1"></p>
+        <input type="button" value="텍스트 생성" onclick="txtChange()">
+        <br/>
+        <img id="img1" src="img01.jpg">
+        <br/>
+        <button id="button" onclick="imgChange()">이미지 변경</button>
+        <br/>
+        <h3 id="h1">글자 색상 변경</h3>
+        <button id="button2" onclick="colorChange()">색상 변경</button>
+    </body>
+    <script>
+        // 버튼을 누르면 텍스트 생성
+        function txtChange() {
+            var p1 = document.getElementById("p1");
+            p1.innerHTML="텍스트 생성!";
+            p1.style.backgroundColor="yellow";
+        }
+        
+        // 버튼을 누르면 이미지 변경
+        function imgChange() {
+            var img1 = document.getElementById("img1");
+            // img1.setAttribute("src","img02.jpg"); // 방법 1
+            img1.src="img02.jpg"; // 방법 2
+        }
+        
+        // 버튼을 누르면 글자 색상 변경(무지개 반복)
+        var i = 0;
+        var color = ["red", "orange", "yellow", "green", "blue", "navy", "purple"];
+        function colorChange() {
+            var h1 = document.getElementById("h1");
+            h1.style.color=color[i];
+            if(i == 6) {
+                i = 0;
+            } else {
+                i++;
+            }
+        }
+    </script>
+</html>
