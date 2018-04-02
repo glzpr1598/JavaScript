@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <p id="windowSize"></p>
+        <p id="pageSize"></p>
+        <p id="screenSize"></p>
+        <p id="availSize"></p>
+    </body>
+    <script>
+        var windowSize = document.getElementById("windowSize");
+        var pageSize = document.getElementById("pageSize");
+        var screenSize = document.getElementById("screenSize");
+        var availSize = document.getElementById("availSize");
+        
+        // window(브라우저 창)
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+        
+        // page(HTML 전체, 안보이는 부분도 포함)
+        var pageWidth = document.body.clientWidth;
+        var pageHeight = document.body.clientHeight;
+        
+        // screen(모니터)
+        var screenWidth = screen.width;
+        var screenHeight = screen.height;
+        
+        // avail screen(작업표시줄 제외한 screen)
+        var availWidth = screen.availWidth;
+        var availHeight = screen.availHeight;
+        
+        windowSize.innerHTML="창 크기 : " + windowWidth + ", " + windowHeight;
+        pageSize.innerHTML="페이지 크기 : " + pageWidth + ", " + pageHeight;
+        screenSize.innerHTML="모니터 크기 : " + screenWidth + ", " + screenHeight;
+        availSize.innerHTML="avail 모니 크기 : " + availWidth + ", " + availHeight;
+        
+    </script>
+</html>

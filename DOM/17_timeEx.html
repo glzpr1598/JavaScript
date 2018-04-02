@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <p>location.href = "http://www.google.co.kr/"</p>
+        <h3>
+            <span id="span1" style="color: red"></span>
+            <span id="span2"></span>
+        </h3>
+    </body>
+    <script>
+        var span1 = document.getElementById("span1");
+        var span2 = document.getElementById("span2");
+        // 카운트 초기값
+        var cnt = 5;
+        // Interval 설정
+        inter = setInterval(function() {
+            span1.innerHTML=cnt;
+            span2.innerHTML="초 후 페이지가 이동됩니다."
+            cnt--;
+        }, 1000);
+        // 특정 시간 지난 후 페이지 이동
+        setTimeout(function() {
+            alert("페이지를 이동합니다.");
+            // 주소 이동
+            location.href = "http://www.google.co.kr/";
+        }, 6000);
+    </script>
+</html>

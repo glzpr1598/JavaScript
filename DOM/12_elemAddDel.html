@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body id="body">
+        <input id="input1" type="text">
+        <button onclick="addList()">추가</button>
+        <button onclick="delList()">삭제</button>
+        <button onclick="updateList()">수정</button>
+        <ul id="ul1"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>jQuery</li></ul>
+    </body>
+    <script>
+        function addList() {
+            // 입력값 가져오기
+            var txt = document.getElementById("input1").value;
+            // ul 가져오기
+            var ul1 = document.getElementById("ul1");
+            
+            // li 태그 만들기
+            var newLi = document.createElement("li");
+            
+            // li 태그에 textNode 삽입
+            var newTxt = document.createTextNode(txt);
+            newLi.appendChild(newTxt);
+            //list.innerHTML=txt;
+            
+            // li를 ul에 추가
+            ul1.appendChild(newLi);
+        }
+        
+        function delList() {
+            var ul1 = document.getElementById("ul1");
+            
+            // childNodes의 길이 -> 태그 사이의 텍스트(공백, 줄바꿈)도 포함
+            var len = ul1.childNodes.length;
+            // 마지막 자식요소 삭제
+            ul1.removeChild(ul1.childNodes[len-1]);
+        }
+        
+        function updateList() {
+            var txt = document.getElementById("input1").value;
+            var ul1 = document.getElementById("ul1");
+            var len = ul1.childNodes.length;
+            
+            // 마지막 요소 가져옴
+            var lastChild = ul1.childNodes[len-1];
+            // 텍스트 수정
+            lastChild.innerHTML=txt;
+        }
+    </script>
+</html>

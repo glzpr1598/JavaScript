@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <button id="btn1" onclick="start()">시작</button>
+        <button id="btn2" onclick="stop()">정지</button>
+        <button id="btn3" onclick="timeCount()">3초 후 알</button>
+        <h1 id="cnt">0</h1>
+    </body>
+    <script>
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+        var cnt = document.getElementById("cnt");
+        var inter;
+        
+        function start() {
+            var i = 0;
+            // setInterval(함수, 시간(ms)) : 시간마다 함수 실행
+            inter = setInterval(function() {
+                i++;
+                cnt.innerHTML=i;
+            }, 1000);
+            // 버튼 비활성화
+            btn1.setAttribute("disabled", "true");
+        }
+        
+        function stop() {
+            // clearInterval(interval 객체) : 인자 interval 중지
+            clearInterval(inter);
+            //cnt.innerHTML="";
+            btn1.removeAttribute("disabled");
+            cnt.innerHTML="0";
+        }
+        
+        function timeCount() {
+            // setTimeout(함수, 시간(ms)) : 시간이 지난 후 함수 실행
+            setTimeout(function() {
+                alert("3초 경과");
+            }, 3000);
+        }
+    </script>
+</html>

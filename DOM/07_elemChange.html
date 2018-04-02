@@ -2,14 +2,14 @@
     <head>
         <meta charset="utf-8">
         <title>DOM 객체</title>
-        <link rel="icon" href="JavaScript.png">
+        <link rel="icon" href="../img/JavaScript.png">
         <link rel="stylesheet" href="main.css" type="text/css">
     </head>
     <body>
         <p id="p1"></p>
         <input type="button" value="텍스트 생성" onclick="txtChange()">
         <br/>
-        <img id="img1" src="img01.jpg">
+        <img id="img1" src="../img/img01.jpg">
         <br/>
         <button id="button" onclick="imgChange()">이미지 변경</button>
         <br/>
@@ -28,7 +28,7 @@
         function imgChange() {
             var img1 = document.getElementById("img1");
             // img1.setAttribute("src","img02.jpg"); // 방법 1
-            img1.src="img02.jpg"; // 방법 2
+            img1.src="../img/img02.jpg"; // 방법 2
         }
         
         // 버튼을 누르면 글자 색상 변경(무지개 반복)

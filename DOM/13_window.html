@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <p id="p1"></p>
+        <p id="p2"></p>
+        <button onclick="winOpen()">창 열기</button>
+        <button onclick="winClose()">창 닫기</button>
+    </body>
+    <script>
+        var p1 = document.getElementById("p1");
+        var p2 = document.getElementById("p2");
+        var width1 = window.outerWidth;
+        var height1 = window.outerHeight;
+        var width2 = window.innerWidth;
+        var height2 = window.innerHeight;
+        var msg1 = "외부창의 크기 : " + width1 + ", " + height1;
+        var msg2 = "내부창의 크기 : " + width2 + ", " + height2;
+        p1.innerHTML = msg1;
+        p2.innerHTML = msg2;
+        
+        // window 객체를 이용해 새창 열기
+        var myWindow;
+        function winOpen() {
+            // 인자 : (url, title[, option])
+            // scrollbar(기본값 yes), resizeable(기본값 yes), width, height, top(기본값 0), left(기본값 0), ...
+            myWindow = window.open("https://www.naver.com", "test", "width=800px, height=500px");
+        }
+        
+        // 열었던 창 닫기
+        function winClose() {
+            myWindow.close();
+        }
+    </script>
+</html>

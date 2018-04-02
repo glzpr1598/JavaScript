@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <button id="btn1" onclick="left()">left</button>
+        <button id="btn2" onclick="right()">right</button>
+        <button id="btn3" onclick="stop()">stop</button>
+        <div id="obj"></div>
+    </body>
+    <script>
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+        var obj = document.getElementById("obj");
+        var x = 0;
+        var inter1, inter2;
+        
+        function left() {
+            var i = 0;
+            // 버튼 비활성화
+            btn1.setAttribute("disabled", "true");
+            // 0.01초마다 left가 1씩 감소
+            inter1 = setInterval(function() {
+                if (i < 100) {
+                    x = x - 1;
+                    if (x >= 0) {
+                        obj.style.left = x;
+                        i++;
+                    } else { // 화면 왼쪽으로 벗어나려 하
+                        alert("움직일 수 없습니다.");
+                        btn1.removeAttribute("disabled");
+                        clearInterval(inter1);
+                    }
+                } else {
+                    btn1.removeAttribute("disabled");
+                    clearInterval(inter1);
+                }
+            }, 10);
+        }
+        
+        function right() {
+            var i = 0;
+            // 버튼 비활성화
+            btn2.setAttribute("disabled", "true");
+            // 0.01초마다 left가 1씩 증가
+            inter2 = setInterval(function() {
+                if (i < 100) {
+                    x = x + 1;
+                    obj.style.left = x;
+                    i++;
+                } else {
+                    btn2.removeAttribute("disabled");
+                    clearInterval(inter2);
+                }
+            }, 10);
+        }
+        
+        function stop() {
+            btn1.removeAttribute("disabled");
+            btn2.removeAttribute("disabled");
+            clearInterval(inter1);
+            clearInterval(inter2);
+        }
+    </script>
+</html>

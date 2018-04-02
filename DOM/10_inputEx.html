@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <p>당신이 입력한 값 : <span id="span1"></span></p>
+        <input id="input1" type="text">
+        <span id="span2"></span>
+    </body>
+    <script>
+        var input1 = document.getElementById("input1");
+        var span1 = document.getElementById("span1");
+        var span2 = document.getElementById("span2");
+        
+        input1.addEventListener("keyup", function(e) {
+            // 입력값 출력
+            span1.innerHTML=input1.value;
+            // 길이 출력
+            len = input1.value.length
+            span2.innerHTML="(" + len + "자 입력)"
+            if(len < 5) {
+                // 글자색
+                span2.setAttribute("style", "color:black");
+                //span2.style.color = "black";
+            } else if (len <= 10) {
+                span2.setAttribute("style", "color:orange");
+            } else { // 10자 초과할 경우
+                span2.setAttribute("style", "color:red");
+                alert("10자까지만 입력 가능합니다.")
+                // 10글자까지만 자르
+                input1.value = input1.value.substring(0, 10);
+                span2.innerHTML="(" + input1.value.length + "자 입력)"
+            }
+        });
+    </script>
+</html>

@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <a href="#" my-attr="header">링크</a>
+        <a href="#" my-attr="main">링크</a>
+        <a href="#" my-attr="footer">링크</a>
+        <button>변경</button>
+    </body>
+    <script>
+        var btn = document.querySelector("button");
+        btn.addEventListener("click", function() {
+            var tags = document.getElementsByTagName("a");
+            console.log(tags);
+            
+            for(var i = 0; i < tags.length; i++) {
+                var attr = console.log(tags[i].getAttribute("my-attr"));
+                if(attr == "header") {
+                    tags.innerHTML="<h1>HEADER</h1>";
+                } else if(attr == "main") {
+                    tags.innerHTML="<h1>MAIN</h1>";
+                } else {
+                    tags.innerHTML="<h1>FOOTER</h1>";
+                }
+            }
+        });
+    </script>
+</html>

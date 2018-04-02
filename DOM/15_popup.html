@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <button onclick="fnAlert()">alert</button>
+        <button onclick="fnConfirm()">confirm</button>
+        <button onclick="fnPrompt()">prompt</button>
+    </body>
+    <script>
+        function fnAlert() {
+            alert("경고창");
+        }
+        
+        function fnConfirm() {
+            // 확인 버튼을 누르면 true 반환
+            var con = confirm("확인창");
+            
+            if (con == true) {
+                alert("확인 버튼 누름");
+            }
+        }
+        
+        function fnPrompt() {
+            var name = prompt("이름을 입력하세요.");
+            
+            if (name == "" || name == null || name == " ") {
+                alert("이름이 입력되지 않았습니다.");
+            } else {
+                alert(name + "님 반갑습니다.");
+            }
+        }
+    </script>
+</html>
