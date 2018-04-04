@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        <div id="mask"> <!--반투명 배경-->
+            <div id="myProgress"> <!--progress bar 배경-->
+                <div id="myBar"></div> <!--progress bar-->
+                <span id="percent">0%</span>
+            </div>
+        </div>
+        <button onclick="startProgress()">실행</button>
+    </body>
+    <script>
+        var mask = document.getElementById("mask");
+        var myProgress = document.getElementById("myProgress");
+        var myBar = document.getElementById("myBar");
+        var percent = document.getElementById("percent");
+        var i = 0;
+        var inter;
+        
+        function startProgress() {
+            i = 0;
+            mask.setAttribute("style", "display: inherit");
+            inter = setInterval(function() {
+                if (i > 100) { // 100%가 되면 종료
+                    clearInterval(inter);
+                    alert("완료되었습니다.");
+                    mask.setAttribute("style", "display: none");
+                }
+                myBar.style.width = i+"%";
+                percent.innerHTML = i+"%";
+                i++;
+            }, 50);
+        }
+    </script>
+</html>

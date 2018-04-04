@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <style>
+            #textarea1 {
+                /* 사이즈 변경 못하도록 */
+                resize: none;
+            }
+        </style>
+    </head>
+    <body>
+        <textarea id="textarea1" cols="40" rows="10"></textarea>
+        <br/>
+        <button id="btn1">Text to JSON</button>
+        <br/><br/>
+        <input id="input1" type="text">번째 사원 이름
+        <button id="btn2">출력</button>
+        <h1 id="h1"></h1>
+    </body>
+    <script>
+        // textarea에 있는 문자를 json으로 변환
+        // JSON.parse(text);
+
+        var textarea1 = document.getElementById("textarea1");
+        var input1 = document.getElementById("input1");
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var h1 = document.getElementById("h1");
+        var json;
+
+        btn1.addEventListener("click", function() {
+            // textarea에 있는 텍스트를 json으로 변환
+            json = JSON.parse(textarea1.value);
+            console.log(json);
+        });
+
+        btn2.addEventListener("click", function() {
+            var i = input1.value - 1;
+            h1.innerHTML=json.employees[i].lastName + " " + json.employees[i].firstName;
+        });
+
+        /*
+        {"employees": [
+            {"firstName": "kap", "lastName": "Kim"},
+            {"firstName": "eul", "lastName": "Lee"},
+            {"firstName": "byeong", "lastName": "Park"}
+        ]}
+        */
+    </script>
+</html>

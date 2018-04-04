@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        성 : <input id="input1" type="text">
+        <br/>
+        이름 : <input id="input2" type="text">
+        <br/>
+        <button id="btn1">입력</button>
+        <h3 id="h1"></h3>
+    </body>
+    <script>
+        var input1 = document.getElementById("input1");
+        var input2 = document.getElementById("input2");
+        var btn1 = document.getElementById("btn1");
+        var h1 = document.getElementById("h1");
+        
+        /* 입력 버튼 클릭 시 생성된 json을 텍스트로 출력 */
+        var personArr = []; // person 배열
+        var json = {}; // personArr을 키로 갖는 json
+        btn1.addEventListener("click", function() {
+            var person = {}; // 성과 이름을 가지는 객체
+            person.lastname = input1.value;
+            person.firstname = input2.value;
+
+            personArr.push(person);
+            
+            json.employees = personArr;
+            
+            // JSON을 텍스트로 변환
+            var jsonTxt = JSON.stringify(json);
+            h1.innerHTML = jsonTxt;
+        });
+        
+    </script>
+</html>

@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <style>
+            #back {
+                width: 500px;
+                height: 400px;
+                top: 50px;
+                left: 0px;
+                position: absolute;
+                background: url(background.jpg) 0px 0px;
+            }
+            
+            #screen {
+                width: 256px;
+                height: 256px;
+                top: 100px;
+                left: 100px;
+                position: absolute;
+                background: url(sprite.png) 0px 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="back"></div>
+        <div id="screen"></div>
+        <button id="btn1" onclick="startAni()">Start</button>
+        <button onclick="stopAni()">Stop</button>
+        <button onclick="resetAni()">Reset</button>
+    </body>
+    <script>
+        var back = document.getElementById("back");
+        var screen = document.getElementById("screen");
+        var btn1 = document.getElementById("btn1");
+        var inter;
+        var index = 0;
+        var x = 0;
+        
+        function startAni() {
+            inter = setInterval(function() {
+                btn1.setAttribute("disabled", "true"); // 버튼 비활성화
+                if (x <= -1100) { // GOAL에 다다르면 정지
+                    clearInterval(inter);
+                    btn1.removeAttribute("disabled"); // 버튼 활성화
+                } else {
+                    index = index - 256; // 이미지 왼쪽으로 이동
+                    x = x - 20; // 배경 왼쪽으로 이동
+                    screen.style.background = "url(sprite.png) " + index + "px 0px";
+                    back.style.background = "url(background.jpg) " + x + "px 0px";
+                }
+            }, 100);
+        }
+        
+        function stopAni() {
+            clearInterval(inter);
+            btn1.removeAttribute("disabled"); // 버튼 활성화
+        }
+        
+        function resetAni() {
+            clearInterval(inter);
+            btn1.removeAttribute("disabled"); // 버튼 활성화
+            index = 0;
+            x = 0;
+            screen.style.background = "url(sprite.png) " + index + "px 0px";
+            back.style.background = "url(background.jpg) " + x + "px 0px";
+        }
+    </script>
+</html>

@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>DOM 객체</title>
+        <link rel="icon" href="../img/JavaScript.png">
+        <link rel="stylesheet" href="main.css" type="text/css">
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // JSON(JavaScript Object Notation) : 경량의 데이터 교환 형식
+        
+        var obj = {"employees": [
+            {"firstName": "kap", "lastName": "Kim"},
+            {"firstName": "eul", "lastName": "Lee"},
+            {"firstName": "byeong", "lastName": "Park"}
+        ]};
+        
+        console.log(obj);
+        
+        // 모든 이름 출력
+        for (var i = 0; i < 3; i++) {
+            console.log(obj.employees[i].lastName + " " + obj.employees[i].firstName);
+        }
+        
+        var json = {"member": [
+            {
+                "id": 1,
+                "name": "김지훈",
+                "eamil": "kim@email",
+                "gender": "남성",
+                "phone": ["010-1234-1234", "02-123-1234"],
+                "nick": "zer0box"
+            },
+            {
+                "id": 2,
+                "name": "홍길동",
+                "eamil": "hong@email",
+                "gender": "남성",
+                "phone": ["010-5678-5678", "02-567-5678"],
+                "nick": "gildong"
+            }
+        ]};
+        
+        // 김지훈의 전화번호 모두 출력
+        console.log(json.member[0].phone[0] + ", " + json.member[0].phone[1]);
+        
+        // 홍길동의 아이디와 이메일 출력
+        console.log(json.member[1].id + ", " + json.member[1].eamil);
+        
+    </script>
+</html>
